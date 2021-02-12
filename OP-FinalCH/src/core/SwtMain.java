@@ -68,8 +68,8 @@ public class SwtMain {
 		Composite composite = new Composite(shell, SWT.NONE);
 		composite.setLayout(new GridLayout(3, false));
 		FormData fd_composite = new FormData();
-		fd_composite.top = new FormAttachment(0, 10);
-		fd_composite.left = new FormAttachment(0, 10);
+		fd_composite.bottom = new FormAttachment(100, -10);
+		fd_composite.right = new FormAttachment(100, -10);
 		composite.setLayoutData(fd_composite);
 		
 		Button btnJugar = new Button(composite, SWT.NONE);
