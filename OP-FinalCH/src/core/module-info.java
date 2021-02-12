@@ -6,6 +6,8 @@
  *
  */
 module modulara {
+	
+	
 	requires swt;
 	requires javafx.media;
 }

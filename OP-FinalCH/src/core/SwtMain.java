@@ -14,19 +14,16 @@ import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class SwtMain {
 	
-	File sfx1;
-	File sfx2;
+	public MediaPlayer mp;
 	AudioClip ac;
-	MediaPlayer mp;
-	Media menuLoop=new Media(getClass().getClassLoader().getResource("880830.wav").toString());
-	Media battle=new Media(getClass().getClassLoader().getResource("battleLoop.wav").toString());
-	MediaView mv;
-	FXCanvas fxc;
 	
 	protected Shell shlFairyQuest;
+	SwtSetts swts;
 
 	/**
 	 * Launch the application.
@@ -65,6 +62,8 @@ public class SwtMain {
 		shlFairyQuest.setText("Fairy Quest");
 		shlFairyQuest.setLayout(new FormLayout());
 		
+		swts=new SwtSetts(shlFairyQuest, 0);
+		
 		Composite composite = new Composite(shlFairyQuest, SWT.NONE);
 		composite.setLayout(new GridLayout(3, false));
 		FormData fd_composite = new FormData();
@@ -76,10 +75,20 @@ public class SwtMain {
 		btnJugar.setText("Jugar");
 		
 		Button btnOpciones = new Button(composite, SWT.NONE);
+		btnOpciones.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				swts.open();
+			}
+		});
 		btnOpciones.setText("Opciones");
 		
 		Button btnSalir = new Button(composite, SWT.NONE);
 		btnSalir.setText("Salir");
-
+		
+		
+		mp=new MediaPlayer(new Media(getClass().getClassLoader().getResource("media/880830.mp3").toString()));
+		mp.setAutoPlay(true);
+		MediaView mv=new MediaView(mp);
 	}
 }
