@@ -4,9 +4,11 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.FormLayout;
+import java.io.File;
 
 public class SwtMain {
-
+	
+	
 	protected Shell shell;
 
 	/**
