@@ -26,7 +26,7 @@ public class SwtMain {
 	MediaView mv;
 	FXCanvas fxc;
 	
-	protected Shell shell;
+	protected Shell shlFairyQuest;
 
 	/**
 	 * Launch the application.
@@ -47,9 +47,9 @@ public class SwtMain {
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
-		shell.open();
-		shell.layout();
-		while (!shell.isDisposed()) {
+		shlFairyQuest.open();
+		shlFairyQuest.layout();
+		while (!shlFairyQuest.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
 			}
@@ -60,12 +60,12 @@ public class SwtMain {
 	 * Create contents of the window.
 	 */
 	protected void createContents() {
-		shell = new Shell();
-		shell.setSize(450, 300);
-		shell.setText("SWT Application");
-		shell.setLayout(new FormLayout());
+		shlFairyQuest = new Shell();
+		shlFairyQuest.setSize(450, 300);
+		shlFairyQuest.setText("Fairy Quest");
+		shlFairyQuest.setLayout(new FormLayout());
 		
-		Composite composite = new Composite(shell, SWT.NONE);
+		Composite composite = new Composite(shlFairyQuest, SWT.NONE);
 		composite.setLayout(new GridLayout(3, false));
 		FormData fd_composite = new FormData();
 		fd_composite.bottom = new FormAttachment(100, -10);
